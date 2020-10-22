@@ -10,7 +10,7 @@ public class YelpResponse {
     
     @Override
     public String toString() {
-        return "YelpResponse{" +
+        return "yelp.YelpResponse{" +
                 "businesses=" + Arrays.toString(businesses) +
                 '}';
     }

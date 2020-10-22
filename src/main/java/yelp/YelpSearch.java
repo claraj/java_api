@@ -1,3 +1,5 @@
+package yelp;
+
 import com.google.gson.Gson;
 import kong.unirest.ObjectMapper;
 import kong.unirest.Unirest;
@@ -41,9 +43,14 @@ public class YelpSearch {
                 .getBody();
     
         Business[] businesses = response.businesses;
-        
-        for (Business b : businesses) {
-            System.out.println(b.name + ": " + b.location.address1 + ", " + b.location.city);
+
+        if (businesses != null) {
+            for (Business b : businesses) {
+                System.out.println(b.name + ": " + b.location.address1 + ", " + b.location.city);
+            }
+        }
+        else {
+            System.out.println("No results returned. Check API key and query parameters");
         }
     }
 }

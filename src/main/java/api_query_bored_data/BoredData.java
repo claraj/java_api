@@ -19,7 +19,7 @@ public class BoredData {
         */
         
         
-        String exchangeRateURL = "http://www.boredapi.com/api/activity";
+        String boredURL = "http://www.boredapi.com/api/activity";
         
         // Configure Unirest to use Gson to do the JSON -> Java object conversions
         // Only need to do this one time.
@@ -41,7 +41,7 @@ public class BoredData {
         
         Map<String, Object> params = Map.of("price", 0.0, "type", "recreational");
         
-        Activity response = Unirest.get(exchangeRateURL)
+        Activity response = Unirest.get(boredURL)
                 .queryString(params)
                 .asObject(Activity.class)    // Turn the response into a RateData object
                 .getBody();
@@ -57,47 +57,7 @@ class Activity {
      String type;
      String participants;
      float price;
-    
-//    public String getActivity() {
-//        return activity;
-//    }
-//
-//    public void setActivity(String activity) {
-//        this.activity = activity;
-//    }
-//
-//    public String getAccessibility() {
-//        return accessibility;
-//    }
-//
-//    public void setAccessibility(String accessibility) {
-//        this.accessibility = accessibility;
-//    }
-//
-//    public String getType() {
-//        return type;
-//    }
-//
-//    public void setType(String type) {
-//        this.type = type;
-//    }
-//
-//    public String getParticipants() {
-//        return participants;
-//    }
-//
-//    public void setParticipants(String participants) {
-//        this.participants = participants;
-//    }
-//
-//    public float getPrice() {
-//        return price;
-//    }
-//
-//    public void setPrice(float price) {
-//        this.price = price;
-//    }
-    
+
     @Override
     public String toString() {
         return "Activity{" +

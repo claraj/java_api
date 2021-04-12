@@ -7,8 +7,10 @@ import java.awt.*;
 
 /**
  * Created by clara on 2019-09-19.
- * Very basic GUI fetching current conditons
- * TO DO - update to use a background task
+ *
+ *
+ * UPDATE Dark Sky no longer accepts new API key sign ups
+ * This will be replaced with a different API
  *
  */
 public class WeatherGUI extends JFrame {

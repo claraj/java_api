@@ -7,14 +7,16 @@ import kong.unirest.Unirest;
 import java.util.Map;
 
 /**
- * Created by clara on 2019-09-18.
+ * Exchange rate API example.
  */
+
 public class ExchangeRate {
     
     public static void main(String[] args) {
     
-//        "https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR"
-        String exchangeRateURL = "https://api.exchangeratesapi.io/latest";
+        // An example URL, to request the rate of EUR (Euros) against USD (US Dollars),
+        // "https://api.ratesapi.io/latest?base=USD&symbols=EUR"
+        String exchangeRateURL = "https://api.ratesapi.io/latest";
     
         // Configure Unirest to use Gson to do the JSON -> Java object conversions
         // Only need to do this one time.
@@ -39,7 +41,7 @@ public class ExchangeRate {
                 .asObject(RateData.class)    // Turn the response into a RateData object
                 .getBody();
     
-        System.out.println(response.getRates().getEUR());
+        System.out.println("The conversion rate between USD and Euro is " + response.getRates().getEUR());
     }
 }
 

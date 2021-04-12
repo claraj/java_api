@@ -46,17 +46,22 @@ public class BoredData {
                 .asObject(Activity.class)    // Turn the response into a RateData object
                 .getBody();
         
-        System.out.println(response);
+        System.out.println("An activity suggestion is " + response.activity);
+        System.out.println("You will need this many participants " + response.participants);
     }
 }
 
 
 class Activity {
-     String activity;
-     String accessibility;
-     String type;
-     String participants;
-     float price;
+    String activity;
+
+    // Accessibility On a 0-1 scale.  0 is very accessible with minimal resources, for example
+    // time/supplies/physical ability
+    String accessibility;
+
+    String type;
+    String participants;
+    float price;
 
     @Override
     public String toString() {

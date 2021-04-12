@@ -10,7 +10,7 @@ public class ExchangeRatesAPI {
     
     public static void main(String[] args) {
 
-      String exchangeRateURL = "https://api.exchangeratesapi.io/latest";
+      String exchangeRateURL = "https://api.ratesapi.io/latest";
         
         // Configure Unirest to use Gson to do the JSON -> Java object conversions
         Unirest.config().setObjectMapper(new ObjectMapper() {

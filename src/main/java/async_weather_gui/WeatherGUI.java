@@ -30,12 +30,15 @@ public class WeatherGUI extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         getWeatherButton.addActionListener(ev -> {
+
+            JOptionPane.showMessageDialog(WeatherGUI.this, "This app will not work, awaiting updates to new API service");
+
             double lat = 45;
             double lng = -91.3;    // Location of Minneapolis
-            
+
             currentConditions.setText("Fetching...");
             getWeatherButton.setEnabled(false);
-            
+
             WeatherWorker worker = new WeatherWorker(lat, lng);
             worker.execute();
             

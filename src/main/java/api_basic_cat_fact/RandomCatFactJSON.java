@@ -1,7 +1,7 @@
 package api_basic_cat_fact;
 
 import kong.unirest.Unirest;
-import org.json.JSONObject;
+import kong.unirest.json.JSONObject;
 
 
 public class RandomCatFactJSON {

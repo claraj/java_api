@@ -10,8 +10,6 @@ public class PokemonAPI {
         // Uses the PokeAPI to collect data on a Pokemon's abilities
         // This API has an enormous amount of other data too! https://pokeapi.co/
 
-        configureUnirest();
-
         String pokemonName = "charizard";  // replace with name of your choice, or ask user
 
         String baseUrl = "https://pokeapi.co/api/v2/pokemon/";
@@ -32,21 +30,4 @@ public class PokemonAPI {
             System.out.println("No data returned.");
         }
     }
-
-    private static void configureUnirest() {
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-    }
-
-
 }

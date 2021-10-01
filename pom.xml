@@ -14,8 +14,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>14</source>
-                    <target>14</target>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
 
@@ -24,35 +24,27 @@
 
     <dependencies>
 
-    <!--Input Utils is for simplifying user input-->
-    <dependency>
-        <groupId>edu.minneapolis</groupId>
-        <artifactId>input-utils</artifactId>
-        <version>1.0.2</version>
-    </dependency>
+        <!--Input Utils is for simplifying user input-->
+        <dependency>
+            <groupId>edu.minneapolis</groupId>
+            <artifactId>input-utils</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
-    <!-- For converting JSON into Java objects -->
+        <!-- GSON, For converting JSON into Java objects -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>2.8.5</version>
-    </dependency>
-
-    <!--  For making API requests -->
-    <dependency>
-        <groupId>com.konghq</groupId>
-        <artifactId>unirest-java</artifactId>
-        <version>2.3.17</version>
-        <classifier>standalone</classifier>
-    </dependency>
-
-    <!--  Scribe for authenticating to APIs with OAUTH      -->
-    <dependency>
-        <groupId>com.github.scribejava</groupId>
-        <artifactId>scribejava-apis</artifactId>
-        <version>6.8.1</version>
-    </dependency>
+        <!-- Unirest, For making API requests -->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.12.0</version>
+            <classifier>standalone</classifier>
+        </dependency>
 
     </dependencies>
 

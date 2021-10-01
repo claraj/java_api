@@ -13,29 +13,12 @@ public class BoredData {
     
     public static void main(String[] args) {
 
-        /*
-        * https://www.boredapi.com/documentation#endpoints-type
-        *
-        */
-        
-        
+
+        // Documentation at https://www.boredapi.com/documentation#endpoints-type
+
+
         String boredURL = "http://www.boredapi.com/api/activity";
-        
-        // Configure Unirest to use Gson to do the JSON -> Java object conversions
-        // Only need to do this one time.
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-            
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-        
+
         // Create a map of query parameter names and value
         // Here, want to search for free, recreational activities
         

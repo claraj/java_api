@@ -10,25 +10,15 @@ import kong.unirest.Unirest;
 public class YelpSearch {
     
     public static void main(String[] args) {
-    
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-        
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-    
-    
+
         String YELP_URL = "https://api.yelp.com/v3/businesses/search";
     
         String YELP_API_KEY = System.getenv("YELP_API_KEY");  // make sure this is set
-    
+        if (YELP_API_KEY == null) {
+            System.out.println("No API key set. Set an environment variable with the name YELP_API_KEY and the value ");
+            System.exit(0);  // close program - developer needs to fix the environment variable
+        }
+
         String query = "pizza";
     
         YelpResponse response = Unirest.get(YELP_URL)

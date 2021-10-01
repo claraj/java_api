@@ -21,23 +21,27 @@ public class RandomCatFactJSONObjectMapper {
     
     
     public static void main(String[] args) {
-    
-        // Configure Unirest to use Gson to do the JSON -> Java object conversions
-        // Only need to do this one time.
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-    
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-        
-        // Make request, convert response to CatFact object
+
+        /* Make request, convert response to CatFact object
+         The JSON attribute values are used to set the fields in the CatFact object.
+
+         An example response looks like this, with a fact and a length attribute.
+         {
+            "fact":"A domestic cat can run at speeds of 30 mph.",
+            "length":43
+         }
+
+         So for this response, a CatFact object will be created. CatFact objects have a
+         fact field, and the value of the fact field will be set to the value of the fact
+         attribute from the JSON.
+         So the CatFact object's fact field will be "A domestic cat can run at speeds of 30 mph."
+         and the length field will be set to 43.
+
+         Note that the names and types of the fields in the Java class must match the name and types
+         of attributes and values in the JSON.
+
+        */
+
         String catFactURL = "https://catfact.ninja/fact";
         CatFact catFact = Unirest.get(catFactURL).asObject(CatFact.class).getBody();
         System.out.println(catFact.getFact());

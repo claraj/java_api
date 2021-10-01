@@ -7,7 +7,7 @@ import kong.unirest.Unirest;
 /**
  * Created by clara on 2019-09-18.
  */
-public class MetroTransitJSON {
+public class MetroTransit {
     
     /*
     *  Use the Metro Transit API to get the next bus departures for the stop outside
@@ -19,27 +19,22 @@ public class MetroTransitJSON {
     * */
     
     public static void main(String[] args) {
-    
+
+        // This URL is a request for the bus departures from stop number 17940, which
+        // is the stop on Hennepin Avenue for buses traveling north.
         String metroTransitURL = "http://svc.metrotransit.org/NexTrip/17940?format=json";
-    
-        // Configure Unirest to use Gson to do the JSON -> Java object conversions
-        // Only need to do this one time.
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-        
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-    
+
         BusStatus[] busStatuses = Unirest.get(metroTransitURL).asObject(BusStatus[].class).getBody();
-        for (BusStatus s: busStatuses) {
-            System.out.println(s.getDepartureText());
+
+        String busTableTemplate = "%-10s%-40s%-20s\n";
+
+        // Table header
+        System.out.printf(busTableTemplate, "Route", "Description", "Arrival Time");
+        System.out.println("=".repeat(70));
+
+        // Read information about each bus, display in table form
+        for (BusStatus bus: busStatuses) {
+            System.out.printf(busTableTemplate, bus.getRoute(), bus.getDescription(), bus.getDepartureText());
         }
     }
 }

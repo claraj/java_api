@@ -15,24 +15,12 @@ public class ExchangeRate {
     public static void main(String[] args) {
     
         // An example URL, to request the rate of EUR (Euros) against USD (US Dollars),
-        // "https://api.ratesapi.io/latest?base=USD&symbols=EUR"
-        String exchangeRateURL = "https://api.ratesapi.io/latest";
-    
-        // Configure Unirest to use Gson to do the JSON -> Java object conversions
-        // Only need to do this one time.
-        Unirest.config().setObjectMapper(new ObjectMapper() {
-            private Gson gson = new Gson();
-            @Override
-            public <T> T readValue(String s, Class<T> aClass) {
-                return gson.fromJson(s, aClass);
-            }
-        
-            @Override
-            public String writeValue(Object o) {
-                return gson.toJson(o);
-            }
-        });
-        
+        // "https://exchange-rates-1150.herokuapp.com/latest?base=USD&symbols=EUR"
+        // Note that this server will take ~30 seconds to respond the first time you run the program.
+        // Subsequent requests will be much faster.
+
+        String exchangeRateURL = "https://exchange-rates-1150.herokuapp.com/latest";
+
         // Create a map of query parameter names and value
         Map<String, Object> params = Map.of("base", "USD", "symbols", "EUR");
         

@@ -1,7 +1,5 @@
 package api_async_kanye;
 
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
 import kong.unirest.Unirest;
 
 import java.util.concurrent.CompletableFuture;

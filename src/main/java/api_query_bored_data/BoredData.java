@@ -38,8 +38,8 @@ public class BoredData {
 class Activity {
     String activity;
 
-    // Accessibility On a 0-1 scale.  0 is very accessible with minimal resources, for example
-    // time/supplies/physical ability
+    // Accessibility on a 0-1 scale.  0 is very accessible with minimal resources,
+    // for example time, supplies, physical ability.
     String accessibility;
 
     String type;

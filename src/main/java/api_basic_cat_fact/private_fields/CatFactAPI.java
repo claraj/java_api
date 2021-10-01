@@ -1,11 +1,9 @@
-package api_basic_cat_fact;
+package api_basic_cat_fact.private_fields;
 
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
 import kong.unirest.Unirest;
 
 
-public class RandomCatFactJSONObjectMapper {
+public class CatFactAPI {
 
     /*
     *  Use the Unirest Library to get a random cat fact
@@ -49,28 +47,29 @@ public class RandomCatFactJSONObjectMapper {
 }
 
 class CatFact {
-        private String fact;
-        private int length;
-        
-        public CatFact(String fact, int length) {
+
+    private String fact;
+    private int length;
+
+    public CatFact(String fact, int length) {
             this.fact = fact;
             this.length = length;
         }
-        
-        public String getFact() {
-            return fact;
-        }
-        
-        public void setFact(String fact) {
-            this.fact = fact;
-        }
-        
-        public int getLength() {
-            return length;
-        }
-        
-        public void setLength(int length) {
-            this.length = length;
-        }
+
+    public String getFact() {
+        return fact;
     }
+
+    public void setFact(String fact) {
+        this.fact = fact;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+}
 

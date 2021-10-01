@@ -2,7 +2,7 @@ package api_basic_cat_fact;
 
 import kong.unirest.Unirest;
 
-public class RandomCatFact {
+public class CatFactAPI {
 
     /*
     *  Use the Unirest Library to get a random cat fact

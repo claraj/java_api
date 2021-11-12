@@ -9,10 +9,12 @@ import java.awt.*;
  * Created by clara on 2019-09-19.
  *
  *
- * UPDATE Dark Sky no longer accepts new API key sign ups
- * This will be replaced with a different API
+ * UPDATE This program does not work
+ * Dark Sky no longer accepts new API key sign ups
+ * This will be replaced with a different API in the future
  *
  */
+
 public class WeatherGUI extends JFrame {
     private JButton getWeatherButton;
     private JPanel mainPanel;

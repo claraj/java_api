@@ -34,119 +34,24 @@ public class MetroTransit {
 
         // Read information about each bus, display in table form
         for (BusStatus bus: busStatuses) {
-            System.out.printf(busTableTemplate, bus.getRoute(), bus.getDescription(), bus.getDepartureText());
+            System.out.printf(busTableTemplate, bus.Route, bus.Description, bus.DepartureText);
         }
     }
 }
 
 class BusStatus {
-    private String VehicleLongitude;
-    private String DepartureText;
-    private String DepartureTime;
-    private String RouteDirection;
-    private String Description;
-    private String VehicleLatitude;
-    private String Actual;
-    private String Gate;
-    private String BlockNumber;
-    private String Terminal;
-    private String Route;
-    private String VehicleHeading;
-    public String getVehicleLongitude () {
-        return VehicleLongitude;
-    }
-    
-    public void setVehicleLongitude (String VehicleLongitude) {
-        this.VehicleLongitude = VehicleLongitude;
-    }
-    
-    public String getDepartureText () {
-        return DepartureText;
-    }
-    
-    public void setDepartureText (String DepartureText) {
-        this.DepartureText = DepartureText;
-    }
-    
-    public String getDepartureTime () {
-        return DepartureTime;
-    }
-    
-    public void setDepartureTime (String DepartureTime) {
-        this.DepartureTime = DepartureTime;
-    }
-    
-    public String getRouteDirection () {
-        return RouteDirection;
-    }
-    
-    public void setRouteDirection (String RouteDirection) {
-        this.RouteDirection = RouteDirection;
-    }
-    
-    public String getDescription () {
-        return Description;
-    }
-    
-    public void setDescription (String Description) {
-        this.Description = Description;
-    }
-    
-    public String getVehicleLatitude () {
-        return VehicleLatitude;
-    }
-    
-    public void setVehicleLatitude (String VehicleLatitude) {
-        this.VehicleLatitude = VehicleLatitude;
-    }
-    
-    public String getActual () {
-        return Actual;
-    }
-    
-    public void setActual (String Actual) {
-        this.Actual = Actual;
-    }
-    
-    public String getGate () {
-        return Gate;
-    }
-    
-    public void setGate (String Gate) {
-        this.Gate = Gate;
-    }
-    
-    public String getBlockNumber () {
-        return BlockNumber;
-    }
-    
-    public void setBlockNumber (String BlockNumber) {
-        this.BlockNumber = BlockNumber;
-    }
-    
-    public String getTerminal () {
-        return Terminal;
-    }
-    
-    public void setTerminal (String Terminal) {
-        this.Terminal = Terminal;
-    }
-    
-    public String getRoute () {
-        return Route;
-    }
-    
-    public void setRoute (String Route) {
-        this.Route = Route;
-    }
-    
-    public String getVehicleHeading () {
-        return VehicleHeading;
-    }
-    
-    public void setVehicleHeading (String VehicleHeading) {
-        this.VehicleHeading = VehicleHeading;
-    }
+    public String VehicleLongitude;
+    public String DepartureText;
+    public String DepartureTime;
+    public String RouteDirection;
+    public String Description;
+    public String VehicleLatitude;
+    public String Actual;
+    public String Gate;
+    public String BlockNumber;
+    public String Terminal;
+    public String Route;
+    public String VehicleHeading;
     
     @Override
     public String toString()

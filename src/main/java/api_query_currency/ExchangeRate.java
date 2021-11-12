@@ -1,14 +1,7 @@
 package api_query_currency;
 
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
-import kong.unirest.Unirest;
-
 import java.util.Map;
-
-/**
- * Exchange rate API example.
- */
+import kong.unirest.Unirest;
 
 public class ExchangeRate {
     
@@ -19,13 +12,9 @@ public class ExchangeRate {
         // Note that this server will take ~30 seconds to respond the first time you run the program.
         // Subsequent requests will be much faster.
 
-        String exchangeRateURL = "https://exchange-rates-1150.herokuapp.com/latest";
+        String exchangeRateURL = "https://exchange-rates-1150.herokuapp.com/latest?base=USD&symbols=EUR";
 
-        // Create a map of query parameter names and value
-        Map<String, Object> params = Map.of("base", "USD", "symbols", "EUR");
-        
         RateData response = Unirest.get(exchangeRateURL)
-                .queryString(params)
                 .asObject(RateData.class)    // Turn the response into a RateData object
                 .getBody();
     

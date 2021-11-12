@@ -1,8 +1,9 @@
 package yelp;
 
 /**
- * Created by clara on 2019-09-20.
+ * Classes for mapping the JSON response to Java objects.
  */
+
 public class YelpResponse {
     public Business[] businesses;
 }

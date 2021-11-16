@@ -23,7 +23,7 @@ public class ExchangeRateMap {
                 .asObject(RateData.class)    // Turn the response into a RateData object
                 .getBody();
     
-        System.out.println("The conversion rate between USD and Euro is " + response.getRates().getEUR());
+        System.out.println("The conversion rate between USD and Euro is " + response.rates.EUR);
     }
 }
 

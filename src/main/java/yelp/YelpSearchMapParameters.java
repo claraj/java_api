@@ -14,7 +14,7 @@ public class YelpSearchMapParameters {
 
         String YELP_API_KEY = System.getenv("YELP_API_KEY");
 
-        String query = "pizza";  // or the search term of your choice
+        String query = "pizza";  // or the search term of your choice, or ask the user
 
         Map<String, Object> searchParameters = Map.of("term", query,
                 "categories", "restaurants",  // see Yelp documentation for list of categories

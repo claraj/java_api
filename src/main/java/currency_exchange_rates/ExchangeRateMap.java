@@ -1,4 +1,4 @@
-package api_query_currency;
+package currency_exchange_rates;
 
 import kong.unirest.Unirest;
 

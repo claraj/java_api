@@ -1,4 +1,4 @@
-package api_async_kanye;
+package kanye_async;
 
 import kong.unirest.Unirest;
 

@@ -1,4 +1,4 @@
-package async_weather_gui;
+package weather_async_gui;
 
 /**
  * Created by clara on 2019-09-19.

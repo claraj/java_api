@@ -1,7 +1,5 @@
-package api_query_bored_data;
+package bored_data;
 
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
 import kong.unirest.Unirest;
 
 import java.util.Map;

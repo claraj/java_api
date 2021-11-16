@@ -1,4 +1,4 @@
-package async_weather_gui;
+package weather_async_gui;
 
 import kong.unirest.Unirest;
 

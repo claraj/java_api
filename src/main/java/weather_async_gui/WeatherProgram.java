@@ -1,8 +1,4 @@
-package async_weather_gui;
-
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
-import kong.unirest.Unirest;
+package weather_async_gui;
 
 /**
  * Created by clara on 2019-09-19.

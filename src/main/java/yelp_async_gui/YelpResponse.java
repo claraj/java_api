@@ -1,4 +1,4 @@
-package api_async_yelp_gui;
+package yelp_async_gui;
 
 import java.util.Arrays;
 

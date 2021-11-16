@@ -1,4 +1,4 @@
-package api_async_yelp_gui;
+package yelp_async_gui;
 
 /**
  * Created by clara on 2019-09-20.

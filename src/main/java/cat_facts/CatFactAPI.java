@@ -1,4 +1,4 @@
-package api_basic_cat_fact;
+package cat_facts;
 
 import kong.unirest.Unirest;
 

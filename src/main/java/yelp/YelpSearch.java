@@ -1,23 +1,20 @@
 package yelp;
 import kong.unirest.Unirest;
 
-/**
- * Created by clara on 2019-09-25.
- */
 public class YelpSearch {
     
     public static void main(String[] args) {
 
         String yelpUrl = "https://api.yelp.com/v3/businesses/search";
 
-        String YELP_API_KEY = System.getenv("YELP_API_KEY");
+        final String YELP_API_KEY = System.getenv("YELP_API_KEY");
 
         if (YELP_API_KEY == null) {
             System.out.println("No API key set. Set an environment variable with the name YELP_API_KEY and the value of your Yelp key ");
             System.exit(0);  // close program - developer needs to fix the environment variable
         }
 
-        String query = "pizza";  // or the search term of your choice
+        String query = "pizza";  // or the search term of your choice, or ask the user to enter a search term
     
         YelpResponse response = Unirest.get(yelpUrl)
                 .header("Authorization", "Bearer " + YELP_API_KEY)

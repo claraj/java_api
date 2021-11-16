@@ -1,7 +1,5 @@
-package api_metro_transit_array;
+package metro_transit;
 
-import com.google.gson.Gson;
-import kong.unirest.ObjectMapper;
 import kong.unirest.Unirest;
 
 /**

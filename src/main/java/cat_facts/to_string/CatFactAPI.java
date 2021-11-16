@@ -1,7 +1,6 @@
-package api_basic_cat_fact.private_fields;
+package cat_facts.to_string;
 
 import kong.unirest.Unirest;
-
 
 public class CatFactAPI {
 
@@ -16,8 +15,7 @@ public class CatFactAPI {
     * Note the CatFact class
     *
     * */
-    
-    
+
     public static void main(String[] args) {
 
         /* Make request, convert response to CatFact object
@@ -42,34 +40,25 @@ public class CatFactAPI {
 
         String catFactURL = "https://catfact.ninja/fact";
         CatFact catFact = Unirest.get(catFactURL).asObject(CatFact.class).getBody();
-        System.out.println(catFact.getFact());
+        System.out.println(catFact);  // prints whatever the toString method returns
     }
 }
+
+// More than one class in a Java program can be defined in the same file.  This program is
+// small and simple and it's ok to put this class here. If the program was larger, then it would be
+// better to move this class to its own file called CatFact.java.
 
 class CatFact {
+    public String fact;
+    public int length;
 
-    private String fact;
-    private int length;
-
-    public CatFact(String fact, int length) {
-            this.fact = fact;
-            this.length = length;
-        }
-
-    public String getFact() {
-        return fact;
+    // toString methods help with debugging, and in this program, can
+    // be used to print information from the API request to the user.
+    public String toString() {
+        return "A random cat fact is " + fact + "\nThis fact is " + length + " characters long.";
     }
 
-    public void setFact(String fact) {
-        this.fact = fact;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
 }
+
+
 

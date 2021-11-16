@@ -6,7 +6,6 @@ package weather_async_gui;
 public class WeatherProgram {
     
     public static void main(String[] args) {
-
         WeatherGUI gui = new WeatherGUI();
     }
     

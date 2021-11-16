@@ -16,12 +16,19 @@
           <text value="Get the current weather!"/>
         </properties>
       </component>
-      <component id="92674" class="javax.swing.JLabel" binding="currentConditions">
+      <component id="dfc69" class="javax.swing.JTextArea" binding="currentConditions">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
         </constraints>
         <properties>
-          <text value="Weather Here"/>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <lineWrap value="true"/>
+          <rows value="3"/>
+          <text value="Current Conditions Here..."/>
+          <wrapStyleWord value="true"/>
         </properties>
       </component>
     </children>

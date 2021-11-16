@@ -4,81 +4,81 @@ import kong.unirest.Unirest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 /**
- * Created by clara on 2019-09-19.
+ * Open Weather Map GUI Program
+ * Sign up for an account and create a key at https://home.openweathermap.org/api_keys
+ * Create an environment variable with the name = OPEN_WEATHER_MAP_KEY and value = your API Key
  *
- *
- * UPDATE This program does not work
- * Dark Sky no longer accepts new API key sign ups
- * This will be replaced with a different API in the future
- *
+ * Documentation: https://openweathermap.org/current
  */
 
 public class WeatherGUI extends JFrame {
     private JButton getWeatherButton;
     private JPanel mainPanel;
-    private JLabel currentConditions;
-    
-    private static final String DARK_SKY_KEY = System.getenv("DARK_SKY_KEY");   // Make sure this is set
-    private static final String DARK_SKY_URL = "https://api.darksky.net/forecast/{api_key}/{lat},{lng}";
-    
+    private JTextArea currentConditions;
+
+    private static final String WEATHER_KEY = System.getenv("OPEN_WEATHER_MAP_KEY");   // Make sure this is set
+    private static final String WEATHER_FORECAST_URL = "https://api.openweathermap.org/data/2.5/weather";
+
+
     WeatherGUI() {
         super("Minneapolis Weather");
         setContentPane(mainPanel);
-        setPreferredSize(new Dimension(250, 150));
+        setPreferredSize(new Dimension(350, 200));
         pack();
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         getWeatherButton.addActionListener(ev -> {
 
-            JOptionPane.showMessageDialog(WeatherGUI.this, "This app will not work, awaiting updates to new API service");
-
-            double lat = 45;
-            double lng = -91.3;    // Location of Minneapolis
-
             currentConditions.setText("Fetching...");
             getWeatherButton.setEnabled(false);
 
-            WeatherWorker worker = new WeatherWorker(lat, lng);
+            WeatherWorker worker = new WeatherWorker("Minneapolis,MN,US");
             worker.execute();
             
         });
     }
     
-    private void updateWeather(String weather) {
-        currentConditions.setText(weather);
+    private void updateWeather(WeatherResponse weather) {
+        String weatherText = String.format("The current conditions are %s. " +
+                        "The temperature is %.2f Celsius and the wind speed is %.2f km/hour.",
+                weather.weather[0].description, weather.main.temp, weather.wind.speed);
+        currentConditions.setText(weatherText);
         getWeatherButton.setEnabled(true);
     }
     
-    class WeatherWorker extends SwingWorker<String, Void> {
+    class WeatherWorker extends SwingWorker<WeatherResponse, Void> {
     
-        double lat;
-        double lng;
+        String location;
         
-        WeatherWorker(double lat, double lng) {
-            this.lat = lat;
-            this.lng = lng;
+        WeatherWorker(String location) {
+            this.location = location;
         }
         
         @Override
-        protected String doInBackground() throws Exception {
-            Weather forecast = Unirest.get(DARK_SKY_URL)
-                    .routeParam("api_key", DARK_SKY_KEY)
-                    .routeParam("lat", Double.toString(lat))
-                    .routeParam("lng", Double.toString(lng))
-                    .asObject(Weather.class)
+        protected WeatherResponse doInBackground(){
+
+            Map<String, Object> params = Map.of(
+                    "q", location,
+                    "units", "metric",   // Otherwise we get Kelvin for temperature which is not so readable for most people.
+                    "appid", WEATHER_KEY);
+
+            WeatherResponse currentConditions = Unirest.get(WEATHER_FORECAST_URL)
+                    .queryString(params)
+                    .asObject(WeatherResponse.class)
                     .getBody();
             
             Unirest.shutDown();
-            return forecast.minutely.summary;
+            return currentConditions;
         }
         
         @Override
         protected void done() {
             try {
-                String weather = get();
+                WeatherResponse weather = get();
                 updateWeather(weather);
             } catch (Exception e) {
                 System.out.println("Error because " + e);

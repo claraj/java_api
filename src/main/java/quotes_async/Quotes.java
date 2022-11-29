@@ -11,7 +11,7 @@ public class Quotes {
         
         /*
         * Random quote API.
-        *
+        * https://github.com/lukePeavey/quotable
         *
         * */
         

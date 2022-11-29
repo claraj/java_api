@@ -15,16 +15,16 @@ public class ExchangeRateErrorHandling {
         // and you are very likely to see them - there are many things that can go wrong when making API requests.
 
         // An example URL, to request the rate of EUR (Euros) against USD (US Dollars),
-        // "https://exchange-rates-1150.herokuapp.com/latest?base=USD&symbols=EUR"
-        // Note that this server will take ~10 seconds to respond the first time you run the program.
+        // "https://1150-exchange-rates.azurewebsites.net/latest?base=USD&symbols=EUR"
+        // Note that this server will take ~30-60 seconds to respond the first time you run the program.
+        // or it may time out. If that happens, try again and it should work.
         // Subsequent requests will be much faster.
 
-        String exchangeRateURL = "https://exchange-rates-1150.herokuapp.com/latest";
+        String exchangeRateURL = "https://1150-exchange-rates.azurewebsites.net/latest";
 
         // Try using this line instead - there's a typo in the URL.
         // So the API server returns a "Not Found" message.
-        //String exchangeRateURL = "https://exchange-rates-1150.herokuapp.com/latestPizza";
-
+        //String exchangeRateURL = "https://1150-exchange-rates.azurewebsites.net/latestPizza";
 
         // Create a map of query parameter names and value
         Map<String, Object> params = Map.of("base", "USD", "symbols", "EUR");
